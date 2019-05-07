@@ -89,6 +89,33 @@ public class SoccerStatsApplicationTests {
     }
 
     @Test
+    public void getMatchTables_returnsMatchTableById() {
+        given()
+                .log().all()
+                .when()
+                .get("/match/table/2174498")
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.OK.value())
+                .body("match.matchId", hasItem(2174498))
+                .body("home.team.teamId", hasItem(6))
+                .body("home.score", hasItem(3))
+                .body("away.team.teamId", hasItem(7))
+                .body("away.score", hasItem(3));
+    }
+
+    @Test
+    public void getMatchTables_returnsNotFoundByNotExistingMatchId() {
+        given()
+                .log().all()
+                .when()
+                .get("/match/table/11111")
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
+    @Test
     public void getMatchInfo_returnsInfoAboutMatchPersonsByMatchId() {
         given()
                 .log().all()
