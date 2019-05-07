@@ -1,0 +1,10 @@
+server:
+  port: 7023
+
+spring:
+  profiles:
+    active: apitest
+
+data:
+  file: test_dataset.csv  # csv dataset filename in classpath
+
