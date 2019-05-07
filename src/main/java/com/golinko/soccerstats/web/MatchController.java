@@ -45,7 +45,7 @@ public class MatchController {
 
     @ApiOperation(value = "Get match table by match id with the information about the team scores", response = MatchTableDto.class)
     @GetMapping("/table/{matchId}")
-    public MatchTableDto getMatchTable(@ApiParam(value = "Match id from which match table object will retrieve", example = "2174508", required = true)
+    public MatchTableDto getMatchTable(@ApiParam(value = "Match id from which match table object will retrieve", example = "2174497", required = true)
                                             @PathVariable Long matchId) throws SoccerStatsException {
         log.debug("getMatchTables({})", matchId);
         return matchService.getMatchTable(matchId);
@@ -53,7 +53,7 @@ public class MatchController {
 
     @ApiOperation(value = "Get match details by id with information about persons participating in the match", response = MatchInfoDto.class)
     @GetMapping("/{matchId}")
-    public MatchInfoDto getMatchInfo(@ApiParam(value = "Match id from which match info object will retrieve", example = "2174508", required = true)
+    public MatchInfoDto getMatchInfo(@ApiParam(value = "Match id from which match info object will retrieve", example = "2174497", required = true)
                                      @PathVariable Long matchId) throws SoccerStatsException {
         log.debug("getMatchInfo({})", matchId);
         return matchService.getMatchInfo(matchId);
