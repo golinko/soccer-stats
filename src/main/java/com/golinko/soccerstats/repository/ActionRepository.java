@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -25,8 +26,8 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class ActionRepository {
-    @Value("${data.file:dataset.csv}")
-    private String dataFile;
+    @Value("${data.file:classpath:dataset.csv}")
+    private Resource dataFile;
 
     @Value("${data.file.encoding:ISO-8859-1}")
     private String dataFileEncoding;
@@ -52,9 +53,9 @@ public class ActionRepository {
         }
     }
 
-    private Reader getReader() throws IOException, URISyntaxException {
+    private Reader getReader() throws IOException {
         log.debug("getReader()");
-        Path path = Paths.get(ClassLoader.getSystemResource(dataFile).toURI());
+        Path path = Paths.get(dataFile.getURI());
         return Files.newBufferedReader(path, Charset.forName(dataFileEncoding));
     }
 }

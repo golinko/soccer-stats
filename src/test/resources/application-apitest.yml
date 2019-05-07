@@ -6,5 +6,5 @@ spring:
     active: apitest
 
 data:
-  file: test_dataset.csv  # csv dataset filename in classpath
+  file: classpath:test_dataset.csv  # csv dataset filename in classpath
 
