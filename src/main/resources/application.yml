@@ -1,0 +1,19 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /soccer-stats
+
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+data:
+  file: dataset.csv  # csv dataset filename in classpath
+  encoding: ISO-8859-1 # csv dataset file encoding
+
+logging:
+  level:
+    org.springframework: INFO
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    com.golinko: DEBUG
