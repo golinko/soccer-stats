@@ -45,7 +45,6 @@ public class MatchService {
 
     public List<MatchTableDto> getMatchTables() throws SoccerStatsException {
         log.debug("getMatchTables()");
-
         return repository.loadActions().stream()
                 .filter(byNonNullTeamId())
                 .collect(groupingBy(dataConverter::convertToMatchDto))
@@ -53,6 +52,14 @@ public class MatchService {
                 .map(entry -> dataConverter.convertToMatchTableDto(entry.getKey(), entry.getValue()).orElse(null))
                 .filter(Objects::nonNull)
                 .collect(toList());
+    }
+
+    public MatchTableDto getMatchTable(Long matchId) throws SoccerStatsException {
+        log.debug("getMatchTable({})", matchId);
+        return getMatchTables().stream()
+                .filter(m -> m.getMatch().getMatchId().equals(matchId))
+                .findAny()
+                .orElseThrow(() -> new NotFoundException(String.format("Match[%d] is not found", matchId)));
     }
 
     public MatchInfoDto getMatchInfo(Long matchId) throws SoccerStatsException {
