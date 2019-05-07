@@ -89,23 +89,23 @@ public class SoccerStatsApplicationTests {
     }
 
     @Test
-    public void getMatchTables_returnsMatchTableById() {
+    public void getMatchTable_returnsMatchTableById() {
         given()
                 .log().all()
                 .when()
-                .get("/match/table/2174498")
+                .get("/match/table/2174497")
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.OK.value())
-                .body("match.matchId", hasItem(2174498))
-                .body("home.team.teamId", hasItem(6))
-                .body("home.score", hasItem(3))
-                .body("away.team.teamId", hasItem(7))
-                .body("away.score", hasItem(3));
+                .body("match.matchId", equalTo(2174497))
+                .body("home.team.teamId", equalTo(15))
+                .body("home.score", equalTo(1))
+                .body("away.team.teamId", equalTo(74))
+                .body("away.score", equalTo(2));
     }
 
     @Test
-    public void getMatchTables_returnsNotFoundByNotExistingMatchId() {
+    public void getMatchTable_returnsNotFoundByNotExistingMatchId() {
         given()
                 .log().all()
                 .when()
