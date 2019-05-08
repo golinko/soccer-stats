@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 /**
- * Deserializer for Id to Long. There is no id with value 0, such value will be deserialized to null
+ * Deserializer for ID value from Long. There is no ID with value 0, such value will be deserialized to null
  */
 public class IdDeserializer extends StdDeserializer<Long> {
 

@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SoccerStatsApplication {
 
     public static void main(String[] args) {
-        log.info("SoccerStatsApplication startup");
         SpringApplication.run(SoccerStatsApplication.class, args);
     }
 

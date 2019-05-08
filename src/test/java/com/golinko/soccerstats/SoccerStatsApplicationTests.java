@@ -44,7 +44,7 @@ public class SoccerStatsApplicationTests {
     private ObjectMapper mapper;
 
     @Before
-    public void setUp() throws SoccerStatsException {
+    public void setUp() {
         RestAssured.port = localServerPort;
         RestAssured.baseURI = "http://localhost";
         RestAssured.basePath = "/soccer-stats";
