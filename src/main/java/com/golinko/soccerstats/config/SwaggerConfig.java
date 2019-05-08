@@ -31,7 +31,7 @@ public class SwaggerConfig {
                 .description("\"Soccer Statistics REST API for getting match tables for Eredivisie 2017/2018 competition\"")
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+                .licenseUrl("https://github.com/golinko/soccer-stats/blob/master/LICENSE")
                 .contact(new Contact("Anna", "https://github.com/golinko/soccer-stats", "noPersonalInfo@github.com"))
                 .build();
     }
