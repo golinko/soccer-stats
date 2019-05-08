@@ -46,7 +46,7 @@ public class MatchController {
     @ApiOperation(value = "Get match table by match id with the information about the team scores", response = MatchTableDto.class)
     @GetMapping("/table/{matchId}")
     public MatchTableDto getMatchTable(@ApiParam(value = "Match id from which match table object will retrieve", example = "2174497", required = true)
-                                            @PathVariable Long matchId) throws SoccerStatsException {
+                                       @PathVariable Long matchId) throws SoccerStatsException {
         log.debug("getMatchTables({})", matchId);
         return matchService.getMatchTable(matchId);
     }
