@@ -39,3 +39,7 @@ mvn clean verify
 After the application up and running you can visit [Swagger UI](http://localhost:8081/soccer-stats/swagger-ui.html) 
 to get API endpoints specifications.
 There you can also try them out by clicking on the `Try it out` button
+
+## Copyright
+
+Released under the Apache License 2.0. See the [LICENSE](https://github.com/golinko/soccer-stats/blob/master/LICENSE) file.
